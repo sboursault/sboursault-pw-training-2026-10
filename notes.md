@@ -1,10 +1,7 @@
 
 
 
-- https://playwright.dev/python/docs/intro
-- vscode python extension
 - sur volet test, run tests with pytest
-- créer pytest.ini avec --headed
 - comment garder le navigateur ouvert à la fin d'un test https://chat.mistral.ai/work/c8ff1542-7044-49b1-a83f-1cd65ee85adc
 
 
@@ -22,35 +19,12 @@ give process to create or checkout a project
 
 ## setup
 
-https://playwright.dev/python/docs/intro
-https://docs.astral.sh/uv/
-
-```
-git clone pw-training
-cd pw-training
-uv init .
-uv add pytest-playwright
-uv add pytest-rerunfailures
-uv run playwright install
-
-```
-
-Create `tests/test_example.py` (https://playwright.dev/python/docs/intro#add-example-test)
-
-```
-uv run pytest
-```
-
-install Microsoft's **Python** vs code plugin (install automatically 3 other extensions)
-
-create pytest.ini
-
-
 page.pause() -- keeps the browser open, gives access to recorder and pick locator
 
 
 page objects :
 https://playwright.dev/python/docs/pom
+
 pom custom fixtures :
 https://chat.mistral.ai/work/8153763d-ded5-479c-afe2-821b5be1cc0e
 
@@ -70,6 +44,11 @@ méthodo :
 écrire en texte le test qu'on veut faire
 ensuite l'exécuter avec le recorder ou l'ia
 
-quels param pour lancer les tests en parallèle (nombre de worker ?)
-
 comment lancer un sous ensemble de tests
+voir la gestion des "marks" : https://chat.mistral.ai/work/f300265c-91dc-492a-9751-3ef1e08bef25
+mais il y a peut-être une autre méthode
+
+sync or async api ?
+https://chat.mistral.ai/work/f300265c-91dc-492a-9751-3ef1e08bef25
+=> always use the sync api, except when you need to wait for two events...
+
