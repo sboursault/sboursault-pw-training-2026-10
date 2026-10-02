@@ -19,6 +19,8 @@ give process to create or checkout a project
 
 ## setup
 
+uv : how to create .venv from pyproject.toml ?
+
 page.pause() -- keeps the browser open, gives access to recorder and pick locator
 
 
