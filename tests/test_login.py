@@ -2,21 +2,17 @@ import re
 
 from playwright.sync_api import Page, expect
 
+from support.page_object.home_page import HomePage
+from support.page_object.login_page import LoginPage
 from support.page_object.product_page import ProductPage
 
 
-def test_login_ok(page: Page):
+def test_login_ok(page: Page, home_page: HomePage, login_page: LoginPage):
 
-    page.goto("/fr/catalogue/")
+    home_page.goto()
 
-    page.get_by_role("link", name=" Compte").click()
+    home_page.goto_login()
 
-    page.get_by_role(
-        "textbox", name="Adresse électronique *"
-    ).fill("tom@test.test")
-    page.get_by_role("textbox", name="Mot de passe *").fill("tom@test.test")
-    page.get_by_role("button", name="Connexion").click()
+    login_page.login("tom@test.test", "tom@test.test")
 
-    expect(page.get_by_role("button", name=" tom@test.test")).to_be_visible()
-    expect(page.get_by_role("heading", name="Tous les produits")).to_be_visible()
-    expect(page.get_by_text("Bienvenue")).to_be_visible()
+    home_page.expect_logged_in("tom@test.test")
