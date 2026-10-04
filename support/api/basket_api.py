@@ -12,4 +12,5 @@ class BasketApi:
         self.api_request.delete(
             "/api/basket/",
             headers={"Authorization": f"Basic {auth}"},
+            fail_on_status_code=True,
         )
