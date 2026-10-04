@@ -5,12 +5,13 @@ from support.api.basket_api import BasketApi
 from support.page_object.home_page import HomePage
 from support.page_object.login_page import LoginPage
 from support.page_object.product_page import ProductPage
+from support.workflow import Workflow
 
 # Playwrigth settings and base fixtures
 
 
 @pytest.fixture(scope="session")
-def browser_context_args(browser_context_args):
+def browser_context_args(browser_context_args: dict):
     """
     Override browser locale
     """
@@ -39,29 +40,32 @@ def api_request(playwright: Playwright, base_url: str):
     ctx.dispose()
 
 
-# Workflow fixtures
-
-
 # Api fixtures
 
 @pytest.fixture
-def basket_api(api_request: APIRequestContext) -> BasketApi:
+def basket_api(api_request: APIRequestContext):
     return BasketApi(api_request)
+
+
+# Workflow fixtures
+
+@pytest.fixture
+def workflow(home_page: HomePage, login_page: LoginPage):
+    return Workflow(home_page, login_page)
 
 
 # Page object fixtures
 
-
 @pytest.fixture
-def product_page(page):
+def product_page(page: Page):
     return ProductPage(page)
 
 
 @pytest.fixture
-def login_page(page):
+def login_page(page: Page):
     return LoginPage(page)
 
 
 @pytest.fixture
-def home_page(page):
+def home_page(page: Page):
     return HomePage(page)
