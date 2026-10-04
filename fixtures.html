@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>pytest-playwright native fixtures</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem; color: #1f2328; }
+  h1 { font-size: 1.4rem; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #d0d7de; padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+  th { background: #f6f8fa; }
+  code { background: #eff1f3; border-radius: 4px; padding: 0.1rem 0.3rem; font-size: 0.9em; }
+  td.internal { color: #6e7781; }
+</style>
+</head>
+<body>
+<h1>pytest-playwright native fixtures</h1>
+<p>Source: <code>.venv/lib/python3.12/site-packages/pytest_playwright/pytest_playwright.py</code></p>
+<table>
+  <thead>
+    <tr>
+      <th>Fixture</th>
+      <th>Scope</th>
+      <th>Type</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>page</code></td>
+      <td>function</td>
+      <td><code>Page</code></td>
+      <td>Ready-to-use page for the current test</td>
+    </tr>
+    <tr>
+      <td><code>context</code></td>
+      <td>function</td>
+      <td><code>BrowserContext</code></td>
+      <td>Browser context for the current test</td>
+    </tr>
+    <tr>
+      <td><code>new_context</code></td>
+      <td>function</td>
+      <td>callback</td>
+      <td>Create additional contexts (<code>new_context(locale="de-DE")</code>), auto-closed at teardown</td>
+    </tr>
+    <tr>
+      <td><code>browser</code></td>
+      <td>session</td>
+      <td><code>Browser</code></td>
+      <td>Launched browser instance</td>
+    </tr>
+    <tr>
+      <td><code>playwright</code></td>
+      <td>session</td>
+      <td><code>Playwright</code></td>
+      <td>The Playwright driver object</td>
+    </tr>
+    <tr>
+      <td><code>browser_type</code></td>
+      <td>session</td>
+      <td><code>BrowserType</code></td>
+      <td>Browser type for the current browser</td>
+    </tr>
+    <tr>
+      <td><code>launch_browser</code></td>
+      <td>session</td>
+      <td>callback</td>
+      <td>Overridable browser-launch callback</td>
+    </tr>
+    <tr>
+      <td><code>connect_options</code></td>
+      <td>session</td>
+      <td><code>dict | None</code></td>
+      <td>Options for connect mode</td>
+    </tr>
+    <tr>
+      <td><code>browser_name</code></td>
+      <td>session</td>
+      <td><code>str | None</code></td>
+      <td>Current browser name, e.g. <code>"chromium"</code></td>
+    </tr>
+    <tr>
+      <td><code>browser_channel</code></td>
+      <td>session</td>
+      <td><code>str | None</code></td>
+      <td>From <code>--browser-channel</code></td>
+    </tr>
+    <tr>
+      <td><code>browser_type_launch_args</code></td>
+      <td>session</td>
+      <td><code>dict</code></td>
+      <td>Base kwargs passed to <code>browser_type.launch()</code></td>
+    </tr>
+    <tr>
+      <td><code>browser_context_args</code></td>
+      <td>session</td>
+      <td><code>dict</code></td>
+      <td>Base kwargs passed to <code>browser.new_context()</code>, override to customize locale, timezone, etc.</td>
+    </tr>
+    <tr>
+      <td><code>device</code></td>
+      <td>session</td>
+      <td><code>str | None</code></td>
+      <td>From <code>--device</code></td>
+    </tr>
+    <tr>
+      <td><code>is_webkit</code></td>
+      <td>session</td>
+      <td><code>bool</code></td>
+      <td>True when running WebKit</td>
+    </tr>
+    <tr>
+      <td><code>is_firefox</code></td>
+      <td>session</td>
+      <td><code>bool</code></td>
+      <td>True when running Firefox</td>
+    </tr>
+    <tr>
+      <td><code>is_chromium</code></td>
+      <td>session</td>
+      <td><code>bool</code></td>
+      <td>True when running Chromium</td>
+    </tr>
+    <tr>
+      <td><code>output_path</code></td>
+      <td>function</td>
+      <td><code>str</code></td>
+      <td>Per-test output directory path</td>
+    </tr>
+    <tr>
+      <td><code>delete_output_dir</code></td>
+      <td>session (autouse)</td>
+      <td>-</td>
+      <td>Cleans the output directory</td>
+    </tr>
+    <tr class="internal">
+      <td><code>_pw_artifacts_folder</code></td>
+      <td>session</td>
+      <td>internal</td>
+      <td>Artifacts temp folder plumbing</td>
+    </tr>
+    <tr class="internal">
+      <td><code>_artifacts_recorder</code></td>
+      <td>function</td>
+      <td>internal</td>
+      <td>Records traces, videos and screenshots</td>
+    </tr>
+  </tbody>
+</table>
+<p>Related marker (not a fixture): <code>@pytest.mark.browser_context_args(**kwargs)</code> adds per-test arguments to <code>browser.new_context()</code>.</p>
+</body>
+</html>

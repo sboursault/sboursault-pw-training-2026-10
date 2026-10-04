@@ -1,5 +1,5 @@
 import pytest
-from playwright.sync_api import APIRequestContext, Playwright, expect
+from playwright.sync_api import APIRequestContext, Page, Playwright, expect
 
 from support.api.basket_api import BasketApi
 from support.page_object.home_page import HomePage
@@ -15,8 +15,8 @@ def browser_context_args(browser_context_args):
 
 
 @pytest.fixture(autouse=True)
-def _short_timeouts(page):
-    page.set_default_timeout(5_000)             # action timeout
+def _page_settings(page: Page):
+    page.set_default_timeout(5_000)              # action timeout
     page.set_default_navigation_timeout(10_000)  # navigation timeout
 
 
