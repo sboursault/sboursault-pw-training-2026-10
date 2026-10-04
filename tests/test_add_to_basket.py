@@ -1,7 +1,3 @@
-import re
-
-from playwright.sync_api import Page, expect
-
 from support.page_object.product_page import ProductPage
 
 

@@ -50,8 +50,8 @@ def basket_api(api_request: APIRequestContext):
 # Workflow fixtures
 
 @pytest.fixture
-def workflow(home_page: HomePage, login_page: LoginPage):
-    return Workflow(home_page, login_page)
+def workflow(home_page: HomePage, login_page: LoginPage, page: Page):
+    return Workflow(home_page, login_page, page)
 
 
 # Page object fixtures

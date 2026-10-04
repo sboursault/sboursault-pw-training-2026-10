@@ -1,6 +1,3 @@
-import re
-from base64 import b64encode
-
 from playwright.sync_api import Page
 
 from support.api.basket_api import BasketApi
@@ -28,4 +25,5 @@ def test_recover_basket(
 
     workflow.login("tom@test.test", "tom@test.test")
 
+    product_page.goto()
     product_page.expect_basket_count(1)
