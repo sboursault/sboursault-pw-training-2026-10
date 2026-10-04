@@ -9,6 +9,11 @@ from support.page_object.product_page import ProductPage
 expect.set_options(timeout=10_000)  # expect timeout
 
 
+@pytest.fixture(scope="session")
+def browser_context_args(browser_context_args):
+    return {**browser_context_args, "locale": "fr-FR"}
+
+
 @pytest.fixture(autouse=True)
 def _short_timeouts(page):
     page.set_default_timeout(5_000)             # action timeout

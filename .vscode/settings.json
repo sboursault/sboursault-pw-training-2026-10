@@ -1,4 +1,8 @@
 {
+    "autopep8.args": [
+        "--max-line-length",
+        "100"
+    ],
     "[python]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
@@ -11,5 +15,5 @@
         "--pdb", // keeps the page open when a test fails (except in debug mode)
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.pytestEnabled": true
+    "python.testing.pytestEnabled": true,
 }

@@ -6,10 +6,9 @@ class LoginPage:
         self.page = page
 
     def goto(self):
-        self.page.goto("/fr/accounts/login/")
+        self.page.goto("/accounts/login/")
 
     def login(self, email: str, password: str):
-        self.page.get_by_role(
-            "textbox", name="Adresse électronique *").fill(email)
+        self.page.get_by_role("textbox", name="Adresse électronique *").fill(email)
         self.page.get_by_role("textbox", name="Mot de passe *").fill(password)
         self.page.get_by_role("button", name="Connexion").click()
