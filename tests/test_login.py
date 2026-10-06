@@ -1,9 +1,10 @@
-import re
+import pytest
 
 from support.page_object.home_page import HomePage
 from support.page_object.login_page import LoginPage
 
 
+@pytest.mark.smoke
 def test_login_ok(home_page: HomePage, login_page: LoginPage):
 
     home_page.goto()
