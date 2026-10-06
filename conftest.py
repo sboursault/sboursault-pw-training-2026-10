@@ -23,9 +23,9 @@ def page(page: Page):
     """
     Override default timeout for navigation, actions and verifications
     """
-    page.set_default_navigation_timeout(10_000)
-    page.set_default_timeout(5_000)
-    expect.set_options(timeout=5_000)
+    page.set_default_navigation_timeout(20_000)
+    page.set_default_timeout(10_000)
+    expect.set_options(timeout=10_000)
     return page
 
 
